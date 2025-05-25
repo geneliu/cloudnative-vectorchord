@@ -2,6 +2,7 @@ FROM tensorchord/cloudnative-vectorchord:16.9-0.3.0
 
 # Re-declare ARGs for use in this stage, as they are needed for the ADD instruction
 ARG CNPG_TAG
+ARG TARGETARCH
 
 # Switch to root user to install packages
 USER root
