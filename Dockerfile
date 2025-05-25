@@ -9,7 +9,7 @@ ARG TARGETARCH
 # drop to root to install packages
 USER root
 
-ENV PGVECTOR_RS_VERSION=v0.3.0
+ENV PGVECTOR_RS_TAG=v0.3.0
 
 # Download required .deb packages
 ADD https://github.com/tensorchord/VectorChord/releases/download/$VECTORCHORD_TAG/postgresql-${CNPG_TAG%.*}-vchord_${VECTORCHORD_TAG#"v"}-1_$TARGETARCH.deb /tmp/vchord.deb
