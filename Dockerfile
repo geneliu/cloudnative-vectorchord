@@ -12,8 +12,8 @@ USER root
 ENV PGVECTOR_RS_TAG=v0.3.0
 
 # Download required .deb packages
-ADD https://github.com/tensorchord/VectorChord/releases/download/$VECTORCHORD_TAG/postgresql-${CNPG_TAG%.*}-vchord_${VECTORCHORD_TAG#"v"}-1_$TARGETARCH.deb /tmp/vchord.deb
-ADD https://github.com/tensorchord/pgvecto.rs/releases/download/$PGVECTOR_RS_TAG/postgresql-${CNPG_TAG%.*}-pgvecto.rs_${PGVECTOR_RS_TAG#"v"}-1_$TARGETARCH.deb /tmp/pgvecto.rs.deb
+ADD https://github.com/tensorchord/VectorChord/releases/download/${VECTORCHORD_TAG#"v"}/postgresql-${CNPG_TAG%.*}-vchord_${VECTORCHORD_TAG#"v"}-1_$TARGETARCH.deb /tmp/vchord.deb
+ADD https://github.com/tensorchord/pgvecto.rs/releases/download/$PGVECTOR_RS_TAG/vectors-pg${CNPG_TAG%.*}_${PGVECTOR_RS_TAG#"v"}_${TARGETARCH}_vectors.deb /tmp/pgvecto.rs.deb
 
 RUN \
     # Update package list and install prerequisites for adding PGDG apt repository
