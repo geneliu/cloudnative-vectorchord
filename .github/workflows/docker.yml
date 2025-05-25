@@ -115,7 +115,7 @@ jobs:
         uses: docker/build-push-action@v6.17.0
         with:
           context: .
-          platforms: linux/amd64,linux/arm64
+          platforms: linux/amd64
           push: ${{ !github.event.pull_request.head.repo.fork && steps.metadata.outputs.tags != '' }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
