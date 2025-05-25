@@ -1,3 +1,4 @@
+ARG CNPG_TAG
 FROM ghcr.io/cloudnative-pg/postgresql:$CNPG_TAG-bookworm
 
 # Re-declare ARGs to make them available in this build stage
