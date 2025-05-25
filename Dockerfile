@@ -15,8 +15,12 @@ ENV PGVECTOR_RS_TAG=v0.3.0
 # The URL structure is based on the working example from your combined Dockerfile
 ADD https://github.com/tensorchord/pgvecto.rs/releases/download/${PGVECTOR_RS_TAG}/vectors-pg${CNPG_TAG%.*}_${PGVECTOR_RS_TAG#"v"}_${TARGETARCH}_vectors.deb /tmp/pgvecto.rs.deb
 
-# Update package list, install pgvecto.rs, and clean up
-RUN apt-get install -y --no-install-recommends /tmp/pgvecto.rs.deb && rm -f /tmp/pgvecto.rs.deb && rm -rf /var/lib/apt/lists/*
-
+# Update package list, install procps (for ps command) and pgvecto.rs, then clean up
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+        procps \
+        /tmp/pgvecto.rs.deb && \
+    rm -f /tmp/pgvecto.rs.deb && \
+    rm -rf /var/lib/apt/lists/*
 # Switch back to the postgres user
 USER postgres
